@@ -26,3 +26,15 @@ export const getData = async () => {
 	});
 	return data;
 };
+
+export const delData = async (id: number) => {
+	try {
+		await prisma.todo.delete({
+			where: {
+				id,
+			},
+		});
+	} catch (e: Error | unknown) {
+		console.log(e);
+	}
+};
